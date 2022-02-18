@@ -96,6 +96,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(Image.asset("assets/images/dinosaurus.jpg").image, context);
+    precacheImage(Image.asset("assets/images/badImage.jpg").image, context);
+    precacheImage(Image.asset("assets/images/coolImage.jpg").image, context);
+    precacheImage(Image.asset("assets/images/okImage.jpg").image, context);
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
