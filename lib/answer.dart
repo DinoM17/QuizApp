@@ -13,6 +13,15 @@ class Answer extends StatelessWidget {
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all(Colors.white),
           backgroundColor: MaterialStateProperty.all(Colors.blue),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(35),
+            side: const BorderSide(
+              color: Colors.red,
+              style: BorderStyle.solid,
+              width: 3.0,
+            ),
+          )),
         ),
         onPressed: dinoHandler,
         child: Text(
