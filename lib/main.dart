@@ -1,6 +1,7 @@
 import 'package:quiz/quiz.dart';
 import 'package:quiz/result.dart';
 import 'package:quiz/reward.dart';
+import 'package:quiz/chooseQuiz.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,55 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _questions = const [
+  final _quizList = const ["Dino Quiz", "After Sweden Quiz"];
+  final afterSwedenQuestions = const [
+    {
+      "question": "In which city does Dino live?",
+      "answers": [
+        {"text": "Stockholm", "score": 0},
+        {"text": "Västrås", "score": 1},
+        {"text": "Skavsta", "score": 0},
+        {"text": "Norrköping", "score": 0},
+      ],
+    },
+    {
+      "question": "What is the name of the lake where Dino lives?",
+      "answers": [
+        {"text": "Vättern", "score": 0},
+        {"text": "Vänern", "score": 0},
+        {"text": "Mälaren", "score": 1},
+        {"text": "Siljan", "score": 0},
+      ],
+    },
+    {
+      "question": "Where are the shopping centers?",
+      "answers": [
+        {"text": "Erikslund", "score": 1},
+        {"text": "Eriksburg", "score": 0},
+        {"text": "Eskilstuna", "score": 0},
+        {"text": "Haga", "score": 0},
+      ],
+    },
+    {
+      "question": "With which car did Dino pick you up?",
+      "answers": [
+        {"text": "VW Golf", "score": 0},
+        {"text": "Opel Corsa", "score": 1},
+        {"text": "Pegueot", "score": 0},
+        {"text": "BMW", "score": 0},
+      ],
+    },
+    {
+      "question": "Would you come again?",
+      "answers": [
+        {"text": "Yes", "score": 1},
+        {"text": "Yes", "score": 1},
+        {"text": "Yes", "score": 1},
+        {"text": "no", "score": -10},
+      ],
+    },
+  ];
+  final dinoQuizQustions = const [
     {
       "question": "What's Dino's favourite colour?",
       "answers": [
@@ -74,12 +123,15 @@ class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   var _totalScore = 0;
   var _rewardScore = 0;
+  var _chosenQuiz = 0;
+  List<Map<String, Object>> _questions = [];
 
   void _resetQuiz() {
     setState(() {
       _questionIndex = 0;
       _totalScore = 0;
       _rewardScore = 0;
+      _chosenQuiz = 0;
     });
   }
 
@@ -94,32 +146,50 @@ class _MyAppState extends State<MyApp> {
     setState(() => _questionIndex++);
   }
 
+  void _chooseQuiz(int quizNumber) {
+    setState(() {
+      _chosenQuiz = quizNumber;
+      if (quizNumber == 1) {
+        _questions = dinoQuizQustions;
+      } else if (quizNumber == 2) {
+        _questions = afterSwedenQuestions;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     precacheImage(Image.asset("assets/images/dinosaurus.jpg").image, context);
     precacheImage(Image.asset("assets/images/badImage.jpg").image, context);
     precacheImage(Image.asset("assets/images/coolImage.jpg").image, context);
     precacheImage(Image.asset("assets/images/okImage.jpg").image, context);
+    precacheImage(Image.asset("assets/images/rose.jpg").image, context);
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Dino quiz"),
+          title: const Text("Quizes"),
           centerTitle: true,
         ),
-        body: _questionIndex < _questions.length
-            ? Quiz(
-                answerQuestion: _answerQuestion,
-                questions: _questions,
-                questionIndex: _questionIndex)
-            : (_rewardScore == 0)
-                ? Result(
-                    rewardFunction: _rewardFun,
-                    resultScore: _totalScore,
-                    numberOfQuestions: _questions.length,
-                  )
-                : Reward(
-                    resetQuiz: _resetQuiz,
-                  ),
+        body: (_chosenQuiz == 0)
+            ? ChooseQuiz(
+                quizes: _quizList,
+                chooseQuizFunction: _chooseQuiz,
+              )
+            : (_questionIndex < _questions.length)
+                ? Quiz(
+                    answerQuestion: _answerQuestion,
+                    questions: _questions,
+                    questionIndex: _questionIndex)
+                : (_rewardScore == 0)
+                    ? Result(
+                        rewardFunction: _rewardFun,
+                        resultScore: _totalScore,
+                        numberOfQuestions: _questions.length,
+                      )
+                    : Reward(
+                        resetQuiz: _resetQuiz,
+                        chosenQuiz: _chosenQuiz,
+                      ),
       ),
     );
   }

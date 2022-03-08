@@ -14,7 +14,11 @@ class Result extends StatelessWidget {
   String get resultPhrase {
     String text = "End result $resultScore/$numberOfQuestions\n";
     if (resultScore != numberOfQuestions) {
-      text += "Not perfect but you still chose your man correctly.\n";
+      if (resultScore < 0) {
+        text += "A sad ti se nije svidilo. \n";
+      } else {
+        text += "Not perfect but you still chose your man correctly.\n";
+      }
     } else {
       text += "Perfect result.\n";
     }

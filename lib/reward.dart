@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class Reward extends StatelessWidget {
   final VoidCallback resetQuiz;
-  const Reward({required this.resetQuiz, Key? key}) : super(key: key);
+  final chosenQuiz;
+  const Reward({required this.resetQuiz, required this.chosenQuiz, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,14 +13,27 @@ class Reward extends StatelessWidget {
         heightFactor: 1.5,
         child: Column(
           children: [
-            Image.asset(
-              "assets/images/dinosaurus.jpg",
-              width: double.infinity,
-              height: 300,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
+            (chosenQuiz == 1)
+                ? Image.asset(
+                    "assets/images/dinosaurus.jpg",
+                    width: double.infinity,
+                    height: 300,
+                  )
+                : Image.asset(
+                    "assets/images/rose.jpg",
+                    width: double.infinity,
+                    height: 300,
+                  ),
+            (chosenQuiz == 2)
+                ? const Text(
+                    "Happy 8 March Baby!!!",
+                    style: TextStyle(
+                      fontSize: 30,
+                    ),
+                  )
+                : const SizedBox(
+                    height: 10,
+                  ),
             TextButton(
               onPressed: resetQuiz,
               style: ButtonStyle(
