@@ -16,13 +16,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _quizList = const ["Dino Quiz", "After Sweden Quiz"];
+  final _quizList = const [
+    "Dino Quiz",
+    "After Sweden Quiz",
+    "Before Germany Quiz",
+  ];
   final afterSwedenQuestions = const [
     {
       "question": "In which city does Dino live?",
       "answers": [
         {"text": "Stockholm", "score": 0},
-        {"text": "Västrås", "score": 1},
+        {"text": "Västerås", "score": 1},
         {"text": "Skavsta", "score": 0},
         {"text": "Norrköping", "score": 0},
       ],
@@ -120,6 +124,62 @@ class _MyAppState extends State<MyApp> {
       ],
     },
   ];
+  final beforeGermanyQuestions = const [
+    {
+      "question": "When is Lejla going to Germany?",
+      "answers": [
+        {"text": "1st of April (Not a joke)", "score": 1},
+        {"text": "3rd of April", "score": 0},
+        {"text": "31st of March", "score": 0},
+        {"text": "2nd of April", "score": 0},
+      ],
+    },
+    {
+      "question": "Where is Lejla going?",
+      "answers": [
+        {"text": "Berlin", "score": 0},
+        {"text": "Brussels", "score": 0},
+        {"text": "All of the above", "score": 1},
+        {"text": "None of the above", "score": 0},
+      ],
+    },
+    {
+      "question": "Is she gonna rock there?",
+      "answers": [
+        {"text": "Yeah", "score": 1},
+        {"text": "Absolutely", "score": 1},
+        {"text": "F**k yeah", "score": 1},
+        {"text": "B***h please", "score": 1},
+      ],
+    },
+    {
+      "question": "What is the name of the kreten going with Lejla?",
+      "answers": [
+        {"text": "Mehmed", "score": 1},
+        {"text": "Aldin", "score": 0},
+        {"text": "Dino", "score": -999999},
+        {"text": "Kreten", "score": 1},
+      ],
+    },
+    {
+      "question": "What is our favourite Christian holiday this year?",
+      "answers": [
+        {"text": "Christmas", "score": 0},
+        {"text": "Krsna slava", "score": 0},
+        {"text": "Easter", "score": 1},
+        {"text": "Ne znam vise hahahh", "score": 0},
+      ],
+    },
+    {
+      "question": "When is my baby coming?",
+      "answers": [
+        {"text": "Sometime in June", "score": 0},
+        {"text": "20th of April", "score": 0},
+        {"text": "10th of April", "score": 0},
+        {"text": "14th of April", "score": 1},
+      ],
+    },
+  ];
   var _questionIndex = 0;
   var _totalScore = 0;
   var _rewardScore = 0;
@@ -153,6 +213,8 @@ class _MyAppState extends State<MyApp> {
         _questions = dinoQuizQustions;
       } else if (quizNumber == 2) {
         _questions = afterSwedenQuestions;
+      } else if (quizNumber == 3) {
+        _questions = beforeGermanyQuestions;
       }
     });
   }
@@ -164,6 +226,7 @@ class _MyAppState extends State<MyApp> {
     precacheImage(Image.asset("assets/images/coolImage.jpg").image, context);
     precacheImage(Image.asset("assets/images/okImage.jpg").image, context);
     precacheImage(Image.asset("assets/images/rose.jpg").image, context);
+    precacheImage(Image.asset("assets/images/angryImage.jpg").image, context);
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(

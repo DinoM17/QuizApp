@@ -8,7 +8,7 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150,
+      width: 180,
       child: ElevatedButton(
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all(Colors.white),

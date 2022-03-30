@@ -31,9 +31,17 @@ class Reward extends StatelessWidget {
                       fontSize: 30,
                     ),
                   )
-                : const SizedBox(
-                    height: 10,
-                  ),
+                : (chosenQuiz == 3)
+                    ? const Text(
+                        "Can't wait to see you BABYYY!!!",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      )
+                    : const SizedBox(
+                        height: 10,
+                      ),
             TextButton(
               onPressed: resetQuiz,
               style: ButtonStyle(

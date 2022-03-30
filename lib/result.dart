@@ -14,7 +14,9 @@ class Result extends StatelessWidget {
   String get resultPhrase {
     String text = "End result $resultScore/$numberOfQuestions\n";
     if (resultScore != numberOfQuestions) {
-      if (resultScore < 0) {
+      if (resultScore < -999990) {
+        text = "A ko je bona kreten?? \n";
+      } else if (resultScore < 0) {
         text += "A sad ti se nije svidilo. \n";
       } else {
         text += "Not perfect but you still chose your man correctly.\n";
@@ -27,7 +29,9 @@ class Result extends StatelessWidget {
 
   String get imageLocation {
     String text;
-    if (resultScore / numberOfQuestions < 0.4) {
+    if (resultScore < -999990) {
+      text = "assets/images/angryImage.jpg";
+    } else if (resultScore / numberOfQuestions < 0.4) {
       text = "assets/images/badImage.jpeg";
     } else if (resultScore / numberOfQuestions > 0.7) {
       text = "assets/images/coolImage.jpg";
