@@ -87,31 +87,21 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     List<String> _allImages = [];
-    for (var i = 0; i < QuizInfo.quizList.length; i++) {
-      if (!_allImages
-          .contains(QuizInfo.quizes[QuizInfo.quizList[i]]!["rewardImage"])) {
-        _allImages.add(
-            QuizInfo.quizes[QuizInfo.quizList[i]]!["rewardImage"] as String);
+    for (var i in QuizInfo.quizList) {
+      if (!_allImages.contains(QuizInfo.quizes[i]!["rewardImage"])) {
+        _allImages.add(QuizInfo.quizes[i]!["rewardImage"] as String);
       }
-      if (!_allImages.contains(
-          QuizInfo.quizes[QuizInfo.quizList[i]]!["bestResultImage"])) {
-        _allImages.add(QuizInfo.quizes[QuizInfo.quizList[i]]!["bestResultImage"]
-            as String);
+      if (!_allImages.contains(QuizInfo.quizes[i]!["bestResultImage"])) {
+        _allImages.add(QuizInfo.quizes[i]!["bestResultImage"] as String);
       }
-      if (!_allImages
-          .contains(QuizInfo.quizes[QuizInfo.quizList[i]]!["badResultImage"])) {
-        _allImages.add(
-            QuizInfo.quizes[QuizInfo.quizList[i]]!["badResultImage"] as String);
+      if (!_allImages.contains(QuizInfo.quizes[i]!["badResultImage"])) {
+        _allImages.add(QuizInfo.quizes[i]!["badResultImage"] as String);
       }
-      if (!_allImages
-          .contains(QuizInfo.quizes[QuizInfo.quizList[i]]!["okResultImage"])) {
-        _allImages.add(
-            QuizInfo.quizes[QuizInfo.quizList[i]]!["okResultImage"] as String);
+      if (!_allImages.contains(QuizInfo.quizes[i]!["okResultImage"])) {
+        _allImages.add(QuizInfo.quizes[i]!["okResultImage"] as String);
       }
-      if (!_allImages.contains(
-          QuizInfo.quizes[QuizInfo.quizList[i]]!["negativeResultImage"])) {
-        _allImages.add(QuizInfo
-            .quizes[QuizInfo.quizList[i]]!["negativeResultImage"] as String);
+      if (!_allImages.contains(QuizInfo.quizes[i]!["negativeResultImage"])) {
+        _allImages.add(QuizInfo.quizes[i]!["negativeResultImage"] as String);
       }
     }
     for (var i in _allImages) {

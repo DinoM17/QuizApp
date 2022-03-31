@@ -16,9 +16,11 @@ class ChooseQuiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Center(
-        heightFactor: 2,
         child: Column(
           children: [
+            const SizedBox(
+              height: 50,
+            ),
             const Question(
               "Choose which quiz you want to take",
             ),

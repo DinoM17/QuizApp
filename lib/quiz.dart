@@ -18,9 +18,13 @@ class Quiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Center(
-        heightFactor: 2,
+        heightFactor: 1.5,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const SizedBox(
+              height: 10,
+            ),
             Question(
               (questionIndex + 1).toString() +
                   "." +
