@@ -4,39 +4,51 @@ class Result extends StatelessWidget {
   final int resultScore;
   final int numberOfQuestions;
   final VoidCallback rewardFunction;
+  final String negativeResultText;
+  final String notPerfectResultText;
+  final String negativeResultImage;
+  final String badResultImage;
+  final String okResultImage;
+  final String bestResultImage;
+  final String perfectResultText;
   const Result(
       {required this.rewardFunction,
       required this.resultScore,
       required this.numberOfQuestions,
+      required this.negativeResultText,
+      required this.notPerfectResultText,
+      required this.perfectResultText,
+      required this.negativeResultImage,
+      required this.badResultImage,
+      required this.bestResultImage,
+      required this.okResultImage,
       Key? key})
       : super(key: key);
 
   String get resultPhrase {
     String text = "End result $resultScore/$numberOfQuestions\n";
     if (resultScore != numberOfQuestions) {
-      if (resultScore < -999990) {
-        text = "A ko je bona kreten?? \n";
-      } else if (resultScore < 0) {
-        text += "A sad ti se nije svidilo. \n";
+      if (resultScore < 0) {
+        text = negativeResultText;
       } else {
-        text += "Not perfect but you still chose your man correctly.\n";
+        text += notPerfectResultText;
       }
     } else {
-      text += "Perfect result.\n";
+      text += perfectResultText;
     }
     return text;
   }
 
   String get imageLocation {
     String text;
-    if (resultScore < -999990) {
-      text = "assets/images/angryImage.jpg";
+    if (resultScore < 0) {
+      text = negativeResultImage;
     } else if (resultScore / numberOfQuestions < 0.4) {
-      text = "assets/images/badImage.jpeg";
+      text = badResultImage;
     } else if (resultScore / numberOfQuestions > 0.7) {
-      text = "assets/images/coolImage.jpg";
+      text = bestResultImage;
     } else {
-      text = "assets/images/okImage.jpg";
+      text = okResultImage;
     }
     return text;
   }
