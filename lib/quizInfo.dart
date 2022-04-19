@@ -3,6 +3,7 @@ class QuizInfo {
     "Dino Quiz",
     "After Sweden Quiz",
     "Before Germany Quiz",
+    "Now its my turn",
   ];
   static const _afterSwedenQuiz = {
     "quiz": [
@@ -197,9 +198,86 @@ class QuizInfo {
     "notPerfectResultText": "Not perfect but I will do better next time.\n",
     "perfectResultText": "Perfect result.\n",
   };
+  static const _nowitsmyturn = {
+    "quiz": [
+      {
+        "question": "How long has Lejla had diabetes?",
+        "answers": [
+          {"text": "I dont know", "score": -10},
+          {"text": "Almost 7 years", "score": 1},
+          {"text": "More than 7 years", "score": 0},
+          {"text": "Around 5 years", "score": 0},
+        ],
+      },
+      {
+        "question": "What is Lejla's favorite meal?",
+        "answers": [
+          {"text": "Pomfrit", "score": 0},
+          {"text": "Metropolis wrap", "score": 0},
+          {"text": "Przena piletina i krompir", "score": 0},
+          {"text": "Pileca salata sa pomfritom", "score": 1},
+        ],
+      },
+      {
+        "question": "What does Lejla want to become when she grows up?",
+        "answers": [
+          {"text": "Diabetes advocate", "score": 0},
+          {"text": "Diabetes educator", "score": 0},
+          {"text": "Have a diabetes association", "score": 0},
+          {"text": "All of the above", "score": 100},
+        ],
+      },
+      {
+        "question": "What is Lejla's favorite sweet food?",
+        "answers": [
+          {"text": "Chocolate", "score": 1},
+          {"text": "Cake", "score": 0},
+          {"text": "Cinnamon rolls", "score": 0},
+          {"text": "Pancakes", "score": 0},
+        ],
+      },
+      {
+        "question": "What should you do if Lejla's blood sugars is high?",
+        "answers": [
+          {"text": "Give her something sweet", "score": -100},
+          {"text": "Give her water", "score": 0},
+          {"text": "Give her insulin", "score": 1},
+          {"text": "Make her walk", "score": 0},
+        ],
+      },
+      {
+        "question": "What does Lejla expect from you?",
+        "answers": [
+          {"text": "To send her money", "score": -100000},
+          {"text": "To buy her gifts from time to time", "score": 0},
+          {"text": "To ne zajebavat je", "score": 0},
+          {"text": "To take care of her and her diabetes ", "score": 1},
+        ],
+      },
+      {
+        "question": "What does Lejla get irritated by?",
+        "answers": [
+          {"text": "When you leave a dirty toilet", "score": 0},
+          {"text": "When you leave dirty dishes", "score": 0},
+          {"text": "When you leave the clothes unfolded", "score": 0},
+          {"text": "All of the above", "score": 1},
+        ],
+      },
+    ],
+    "rewardImage": "assets/images/final.jpg",
+    "rewardText": "Can't wait to see you again my love \n",
+    "bestResultImage": "assets/images/final.jpg",
+    "badResultImage": "assets/images/mozesbolje.jpg",
+    "okResultImage": "assets/images/mozesboolje.jpg",
+    "negativeResultImage": "assets/images/more.jpg",
+    "negativeResultText": "You're paying for the next ticket \n",
+    "notPerfectResultText": "Try again \n",
+    "perfectResultText": "I'll try to pay for the next ticket lol  \n",
+  };
   static const quizes = {
     "After Sweden Quiz": _afterSwedenQuiz,
     "Dino Quiz": _dinoQuiz,
     "Before Germany Quiz": _beforeGermanyQuiz,
+    "Now its my turn": _nowitsmyturn,
   };
 }
